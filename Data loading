@@ -1,0 +1,28 @@
+import os
+import numpy as np
+from keras.models import Sequential
+from keras.layers import Conv2D
+from keras.layers import MaxPooling2D
+from keras.layers import Flatten
+from keras.layers import Dense
+from keras.layers import Dropout
+from keras.preprocessing.image import ImageDataGenerator
+base_dir = os.path.join(os.getcwd(), 'drive/My Drive/Project_20/Dataset')
+train_dir = os.path.join(base_dir, 'Train')
+test_dir = os.path.join(base_dir, 'Test')
+data = []
+labels = []
+#print(os.getcwd())
+#print(os.walk(os.getcwd()))
+
+for i in range (43):
+  path = os.path.join(train_dir, str(i))
+  images = os.listdir(path)
+  for img in images:
+    image = Image.open(path + '/' + img)
+    image = image.resize((30, 30))
+    print(image)
+  data = np.array(data)
+  labels = np.array(labels)
+
+    
